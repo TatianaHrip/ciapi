@@ -5,9 +5,7 @@ import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
-
 import static io.restassured.RestAssured.given;
-
 class MobileBankApiTestV6 {
     private RequestSpecification requestSpec = new RequestSpecBuilder()
             .setBaseUri("http://localhost")
@@ -22,10 +20,8 @@ class MobileBankApiTestV6 {
     void shouldReturnDemoAccounts() {
         given()
                 .spec(requestSpec) // со спецификацией проще (особенно когда много тестов)
-                // Выполняемые действия
                 .when()
                 .get("/demo/accounts")
-                // Проверки
                 .then()
                 .statusCode(200);
     }
